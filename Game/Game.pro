@@ -18,8 +18,14 @@ TARGET = Game
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    bullet.cpp \
+    control.cpp \
     dbhelper.cpp \
+    enemyplane.cpp \
     main.cpp \
+    myplane.cpp \
+    object.cpp \
+    plane.cpp \
     userlogin.cpp \
     usersignup.cpp \
     userspace.cpp \
@@ -27,7 +33,13 @@ SOURCES += \
     wuziqimodel.cpp
 
 HEADERS += \
+    bullet.h \
+    control.h \
     dbhelper.h \
+    enemyplane.h \
+    myplane.h \
+    object.h \
+    plane.h \
     userlogin.h \
     usersignup.h \
     userspace.h \
