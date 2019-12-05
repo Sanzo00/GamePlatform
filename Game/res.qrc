@@ -20,5 +20,18 @@
         <file>sound/win.wav</file>
         <file>sound/lose.wav</file>
         <file>sound/chessone.wav</file>
+        <file>img/background.png</file>
+        <file>img/boss.png</file>
+        <file>img/bossbullet.png</file>
+        <file>img/enemybullet.png</file>
+        <file>img/enemyplane.png</file>
+        <file>img/lifesupply.png</file>
+        <file>img/mybullet.png</file>
+        <file>img/myplane.png</file>
+        <file>img/warofplanes.jpg</file>
+        <file>img/warofplanesicon.ico</file>
+        <file>img/welcome.png</file>
+        <file>img/welcome_new.png</file>
+        <file>sound/starwars.mp3</file>
     </qresource>
 </RCC>

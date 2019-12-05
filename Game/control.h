@@ -91,7 +91,7 @@ private:
     QGraphicsTextItem *scoreText; // 显示打掉的飞机
     QGraphicsTextItem *gameLostText; // 玩家死亡显示文本
     QGraphicsTextItem *gameHelpText; // 游戏帮助文档
-    void  welcomeGame();
+    void welcomeGame();
 
     QGraphicsWidget *maskWidget;
     QGraphicsWidget *startGameButton;
