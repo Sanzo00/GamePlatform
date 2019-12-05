@@ -7,7 +7,7 @@ class myPlane: protected Plane
     friend class Control;
 public:
     myPlane();
-    myPlane(int x, int y, const std::string &imageFile,
+    myPlane(int x, int y, const QString &imageFile,
             QGraphicsScene *scene, int life, int skill);
 
 private:

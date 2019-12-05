@@ -5,7 +5,7 @@ Plane::Plane()
 
 }
 
-Plane::Plane(int x, int y, const std::string &imageFile,
+Plane::Plane(int x, int y, const QString &imageFile,
              QGraphicsScene *scene, int life, enum warPart part):
     Object(part, imageFile)
 {

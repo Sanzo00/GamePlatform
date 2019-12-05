@@ -5,8 +5,8 @@ Object::Object()
 
 }
 
-Object::Object(warPart, const std::string &imageFile):
-    QGraphicsPixmapItem(QPixmap(QString::fromStdString(imageFile))) {
+Object::Object(warPart, const QString &imageFile):
+    QGraphicsPixmapItem(QPixmap(imageFile)) {
     this->part = part;
 }
 

@@ -11,8 +11,8 @@ class Bullet : public Object
     friend class Control;
 public:
     Bullet();
-    Bullet(warPart part, int x, int y, const std::string &imageFile, const QPointF &dir, int power);
-    std::pair<qreal, qreal> updatePOsition();
+    Bullet(warPart part, int x, int y, const QString &imageFile, const QPointF &dir, int power);
+    std::pair<qreal, qreal> updatePosition();
     bool hit(QGraphicsScene *scene);
 
 private:

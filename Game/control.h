@@ -26,23 +26,23 @@ protected:
     void keyReleaseEvent(QKeyEvent *event);
 
 private:
-    std::string myPlaneImageFile;
+    QString myPlaneImageFile;
     int myLife;
     int mySkill;
 
-    std::string myBulletImageFile;
+    QString myBulletImageFile;
     int myBulletPower;
 
-    std::string enemyPlaneImageFile;
+    QString enemyPlaneImageFile;
     int enemyLife;
 
-    std::string enemyBulletImageFile;
+    QString enemyBulletImageFile;
     int enemyBulletPower;
 
-    std::string bossImageFile;
+    QString bossImageFile;
     int bossLife;
 
-    std::string bossBulletImageFile;
+    QString bossBulletImageFile;
     int bossBulletPower;
 
     int myBulletShootTimerId;
@@ -52,9 +52,10 @@ private:
     QPointF myPlaneMove;
     int myPlaneMoveTimerId;
     int enemyPlaneMoveTimerId;
+    int enemyPlaneGenerateTimerId;
     int bossGenerateTimeId;
 
-    std::string lifeSupplyImageFile;
+    QString lifeSupplyImageFile;
 
     myPlane *myplane;
     std::vector<Bullet*> mybullets;
@@ -77,8 +78,9 @@ private:
     bool changeBulletPosition(Bullet *bullet, int newX, int newY);
     void shootEnemyBullets(); // 敌机发射子弹
     void updateMyBullets(); // 更新玩家子弹位置
+    void updateEnemyBullets();
     void shootBullet(); // 玩家发射子弹
-    void updateBar(QGraphicsRectItem *bar, QGraphicsRectItem *grameBar,
+    void updateBar(QGraphicsRectItem *bar, QGraphicsRectItem *frameBar,
                    const QPointF &pos, qreal var, const QBrush &brush); // 更新血条和技能条
     bool hasStarted;
     bool isPause;
@@ -103,7 +105,7 @@ private:
 protected slots:
     void startGame();
     void showHelpMessage(); // 显示帮助文档
-    void pauserGame();
+    void pauseGame();
     void loseGame();
     void retryGame();
     void quitGame();

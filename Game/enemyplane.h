@@ -12,7 +12,7 @@ class enemyPlane: protected Plane
     friend class Control;
 public:
     enemyPlane();
-    enemyPlane(int x, int y, const std::string &imageFile,
+    enemyPlane(int x, int y, const QString &imageFile,
                QGraphicsScene *scene, enemyType type, int life);
     std::pair<int, int> updatePosition();
 

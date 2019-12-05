@@ -13,7 +13,7 @@ class Object : public QGraphicsPixmapItem
 {
 public:
     Object();
-    Object(warPart part, const std::string &inmageFile);
+    Object(warPart part, const QString &inmageFile);
     ~Object();
     void synScreen(QGraphicsScene *scene);
     void delScreen(QGraphicsScene *scene);

@@ -11,7 +11,7 @@ class Plane : public Object
     friend class Control;
 public:
     Plane();
-    Plane(int x, int y, const std::string &imageFile,
+    Plane(int x, int y, const QString &imageFile,
           QGraphicsScene *scene, int life, enum warPart part);
     // 飞机碰撞
     bool crash(QGraphicsScene *scene);

@@ -5,7 +5,7 @@ Bullet::Bullet()
 
 }
 
-Bullet::Bullet(warPart part, int x, int y, const std::string &imageFile, const QPointF &dir, int power):
+Bullet::Bullet(warPart part, int x, int y, const QString &imageFile, const QPointF &dir, int power):
     Object(part, imageFile)
 {
     setPos(x, y);
@@ -13,7 +13,7 @@ Bullet::Bullet(warPart part, int x, int y, const std::string &imageFile, const Q
     this->power = power;
 }
 
-std::pair<qreal, qreal> Bullet::updatePOsition() {
+std::pair<qreal, qreal> Bullet::updatePosition() {
     return std::make_pair(x() + dir.x(), y()+dir.y());
 }
 

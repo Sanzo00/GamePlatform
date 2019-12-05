@@ -5,7 +5,7 @@ enemyPlane::enemyPlane()
 
 }
 
-enemyPlane::enemyPlane(int x, int y, const std::string &imageFile,
+enemyPlane::enemyPlane(int x, int y, const QString &imageFile,
                        QGraphicsScene *scene, enemyType type, int life)
 {
     this->type = type;
