@@ -158,10 +158,6 @@
          <property name="text">
           <string>登录</string>
          </property>
-         <property name="icon">
-          <iconset resource="res.qrc">
-           <normaloff>:/img/u=2579838268,1716293199&amp;fm=26&amp;gp=0.jpg</normaloff>:/img/u=2579838268,1716293199&amp;fm=26&amp;gp=0.jpg</iconset>
-         </property>
          <property name="iconSize">
           <size>
            <width>32</width>
@@ -200,8 +196,6 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources>
-  <include location="res.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

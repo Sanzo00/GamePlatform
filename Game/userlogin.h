@@ -22,13 +22,11 @@ public:
     QPushButton *btnLogin;
     QPushButton *btnSign;
 
-//    static QString user_name;
 public: signals:
     void loginOver();
 
 public slots:
     void showLogin();
-//    void dbInsert(QString name, QString pwd, QString sex);
     void loginShow();
     void loginHidden();
     void getLoginText();

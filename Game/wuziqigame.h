@@ -9,8 +9,6 @@ class wuziqiGame : public QMainWindow
 public:
     explicit wuziqiGame(QWidget *parent = nullptr);
     ~wuziqiGame();
-
-
     GameModel *game;
     GameType game_type;
     int clickPosRow, clickPosCol;
@@ -27,10 +25,11 @@ public:
     // 落子
     void mouseReleaseEvent(QMouseEvent *event);
     void closeEvent(QCloseEvent *event);
-
+    void showHelpMessage();
+protected:
+    void updateGrade(int delt);
 signals:
     void wuziqiOut();
-//    void chessOneByAI();
 
 public slots:
     void wuziqiShow();

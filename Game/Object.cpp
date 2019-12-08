@@ -30,4 +30,3 @@ void Object::delScreen(QGraphicsScene *scene)
     scene->removeItem(this);
     update();
 }
-

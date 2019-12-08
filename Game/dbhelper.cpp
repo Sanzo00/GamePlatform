@@ -1,10 +1,5 @@
 #include "dbhelper.h"
 
-//dbHelper::dbHelper(QObject *parent) : QObject(parent)
-//{
-
-//}
-
 dbHelper::dbHelper() {
     hostName = "127.0.0.1";
     dbName = "test";
@@ -64,21 +59,3 @@ void dbHelper::dbConnect() {
     dbconn.setUserName(userName);
     dbconn.setPassword(userPwd);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

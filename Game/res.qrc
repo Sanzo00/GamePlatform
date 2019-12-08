@@ -1,26 +1,8 @@
 <RCC>
     <qresource prefix="/">
-        <file>img/59f64aabc1d08cbd683c45ab1945383d.jpg</file>
-        <file>img/Dinosaur_eye_2 (copy).png</file>
-        <file>img/Dinosaur_eye_2.png</file>
-        <file>img/u=2579838268,1716293199&amp;fm=26&amp;gp=0.jpg</file>
-        <file>img/greyed-rainbow.jpg</file>
-        <file>img/distant-view-of-niagara-falls.jpg</file>
-        <file>img/the-herring-net.jpg</file>
-        <file>img/cabin-in-the-cotton.jpg</file>
-        <file>img/twilight.jpg</file>
-        <file>img/the-watermill-with-the-great-red-roof.jpg</file>
-        <file>img/landscape-with-saint-john-on-patmos.jpg</file>
-        <file>img/fishing-boats-with-hucksters-bargaining-for-fish.jpg</file>
-        <file>img/the-bay-of-marseille-seen-from-l-estaque.jpg</file>
-        <file>img/default.jpg</file>
-        <file>img/2430.jpg</file>
-        <file>img/Dianasilverss.png</file>
-        <file>img/img-ade9bf63aea3b940038e3171dff6cd07.jpg</file>
         <file>sound/win.wav</file>
         <file>sound/lose.wav</file>
         <file>sound/chessone.wav</file>
-        <file>img/background.png</file>
         <file>img/boss.png</file>
         <file>img/bossbullet.png</file>
         <file>img/enemybullet.png</file>
@@ -33,5 +15,9 @@
         <file>img/welcome.png</file>
         <file>img/welcome_new.png</file>
         <file>sound/starwars.mp3</file>
+        <file>img/login.jpg</file>
+        <file>img/signup.png</file>
+        <file>img/background.png</file>
+        <file>img/space.jpg</file>
     </qresource>
 </RCC>

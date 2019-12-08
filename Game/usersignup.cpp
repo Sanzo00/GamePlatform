@@ -7,7 +7,9 @@ signUp::signUp(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::userSignup)
 {
-
+    QPalette pal = this->palette();
+    pal.setBrush(QPalette::Background, QBrush(QPixmap(":/img/signup.png")));
+    setPalette(pal);
     ui->setupUi(this);
     clear = ui->pushButton1;
     submit = ui->pushButton2;
@@ -71,32 +73,3 @@ void signUp::addUser() { // 注册用户
 void signUp::closeEvent(QCloseEvent *event) {
     signOut();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

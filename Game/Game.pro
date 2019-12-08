@@ -26,7 +26,9 @@ SOURCES += \
     Plane.cpp \
     dbhelper.cpp \
     main.cpp \
+    userinfoform.cpp \
     userlogin.cpp \
+    userrankform.cpp \
     usersignup.cpp \
     userspace.cpp \
     wuziqigame.cpp \
@@ -40,16 +42,21 @@ HEADERS += \
     Object.h \
     Plane.h \
     dbhelper.h \
+    userinfoform.h \
     userlogin.h \
+    userrankform.h \
     usersignup.h \
     userspace.h \
     wuziqigame.h \
     wuziqimodel.h
 
 FORMS += \
+    userinfoform.ui \
     userlogin.ui \
+    userrankform.ui \
     usersignup.ui \
-    userspace.ui
+    userspace.ui \
+    wuziqihelp.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

@@ -9,7 +9,6 @@ enum WarPart { ME, ENEMY, LIFESUPPLY };
 
 class Object : public QGraphicsPixmapItem
 {
-//    friend class userLogin1;
 
 public:
     Object();
@@ -17,7 +16,6 @@ public:
     ~Object();
     void synScreen(QGraphicsScene *scene);
     void delScreen(QGraphicsScene *scene);
-//    QString username;
 
 protected:
     enum WarPart part;

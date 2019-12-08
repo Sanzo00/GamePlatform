@@ -12,7 +12,6 @@ public:
 
 private:
     int skill; //技能值
-
 };
 
 #endif // !MYPLANE_H

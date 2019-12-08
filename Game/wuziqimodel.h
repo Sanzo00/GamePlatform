@@ -6,7 +6,6 @@ enum GameType{
     PERSON,
     BOT
 };
-
 // 游戏状态
 enum GameStatus{
     PLAY,

@@ -110,12 +110,10 @@ private:
     QGraphicsWidget *retryGameButton;
     QGraphicsWidget *quitGameButton;
 
-
     QSplashScreen splash;
     QGraphicsView *view;
 
     void updateGrade();
-//    QString username;
 
 signals:
     void planeOut();

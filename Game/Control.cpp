@@ -19,7 +19,7 @@ Control::Control()
     setSceneRect(0,0,800,600);
 
     this->myPlaneImageFile = ":/img/myplane.png";
-    this->myLife = 10;
+    this->myLife = 50;
     this->mySkill = 5;
 
     this->myBulletImageFile = ":/img/mybullet.png";
@@ -88,63 +88,62 @@ Control::Control()
     scoreText->hide();
 
     /* 游戏开始按钮 */
-    QPushButton *startGameBtn = new QPushButton("Start Game");
+    QPushButton *startGameBtn = new QPushButton("开始游戏");
     startGameBtn->setFont(QFont("Algerian",18));
     startGameBtn->setStyleSheet("QPushButton{background: transparent; color:white; }"
                                 "QPushButton:hover{color:red;}");
     connect(startGameBtn,SIGNAL(clicked()),this,SLOT(startGame()));
     startGameButton = addWidget(startGameBtn);
-    startGameButton->setPos(300,250);
+    startGameButton->setPos(320,250);
     startGameButton->setZValue(2);
     startGameButton->hide();
 
     /* 游戏帮助 */
-    QPushButton *helpGameBtn = new QPushButton(tr("Help"));
+    QPushButton *helpGameBtn = new QPushButton(tr("帮助"));
     helpGameBtn->setFont(QFont("Algerian",18));
     helpGameBtn->setStyleSheet("QPushButton{background: transparent; color:white; }"
                                    "QPushButton:hover{color:red;}");
     connect(helpGameBtn,SIGNAL(clicked()),this,SLOT(showHelpMessage()));
     helpGameButton = addWidget(helpGameBtn);
-    helpGameButton->setPos(350,300);
+    helpGameButton->setPos(330,300);
     helpGameButton->setZValue(2);
     helpGameButton->hide();
 
     /* 退出游戏 */
-    QPushButton *quitGameBtn = new QPushButton(tr("Quit Game"));
+    QPushButton *quitGameBtn = new QPushButton(tr("退出游戏"));
     quitGameBtn->setFont(QFont("Algerian",18));
     quitGameBtn->setStyleSheet("QPushButton{background: transparent; color:white; }"
                                "QPushButton:hover{color:red;}");
     connect(quitGameBtn,SIGNAL(clicked()),this,SLOT(quitGame()));
     quitGameButton = addWidget(quitGameBtn);
-    quitGameButton->setPos(310, 350);
+    quitGameButton->setPos(320, 350);
     quitGameButton->setZValue(2);
     quitGameButton->hide();
 
     /* 游戏暂停提示 */
     isPause = false;
-    QPushButton *continueGameBtn = new QPushButton(tr("Resume"));
+    QPushButton *continueGameBtn = new QPushButton(tr("暂停/开始"));
     continueGameBtn->setFont(QFont("Algerian",18));
     continueGameBtn->setStyleSheet("QPushButton{background: transparent; color:white; }"
                                    "QPushButton:hover{color:red;}");
     connect(continueGameBtn,SIGNAL(clicked()),this,SLOT(pauseGame()));
     continueGameButton = addWidget(continueGameBtn);
-    continueGameButton->setPos(330,250);
+    continueGameButton->setPos(320,250);
     continueGameButton->setZValue(2);
     continueGameButton->hide();
 
     /* 游戏标题 */
     titleText = new QGraphicsTextItem;
     addItem(titleText);
-    titleText->setHtml(tr("<font color=white>WAR OF PLANES</font>"));
+    titleText->setHtml(tr("<font color=white>飞机大战</font>"));
     titleText->setFont(QFont("Algerian", 30));
-    titleText->setPos(200,100);
+    titleText->setPos(300,100);
     titleText->setZValue(2);
     titleText->hide();
 
     /* 作者信息 */
     authorText = new QGraphicsTextItem;
     addItem(authorText);
-    authorText->setHtml(tr("<font color=white>Copyright © 2017,Zhang Shuai. All Rights Reserved."));
     authorText->setFont(QFont("Courier"));
     authorText->setPos(100, 500);
     authorText->setZValue(2);
@@ -160,13 +159,13 @@ Control::Control()
     gameLostText->hide();
 
     /* 重试 */
-    QPushButton *retryGameBtn = new QPushButton(tr("Retry"));
+    QPushButton *retryGameBtn = new QPushButton(tr("重玩"));
     retryGameBtn->setFont(QFont("Algerian",18));
     retryGameBtn->setStyleSheet("QPushButton{background: transparent; color:white; }"
                                 "QPushButton:hover{color:red;}");
     connect(retryGameBtn,SIGNAL(clicked()),this,SLOT(retryGame()));
     retryGameButton = addWidget(retryGameBtn);
-    retryGameButton->setPos(345,250);
+    retryGameButton->setPos(330,250);
     retryGameButton->setZValue(2);
     retryGameButton->hide();
 
@@ -329,7 +328,6 @@ bool Control::generateBoss()
                 break;
             }
         }
-
         if(flag)
             break;
         else
@@ -339,7 +337,6 @@ bool Control::generateBoss()
     /* 若生成100次随机都未能找到合适的位置则退出 */
     if(cnt>=100)
         return false;
-
     /* 新增敌机 */
     EnemyPlane *enemy = new EnemyPlane(x, 0, bossImageFile, this, BOSS, bossLife);
     enemyplanes.push_back(enemy);

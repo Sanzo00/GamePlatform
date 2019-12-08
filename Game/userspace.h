@@ -16,6 +16,8 @@ public:
     ~userSpace();
     QPushButton *btnWuziqi;
     QPushButton *btnPlane;
+    QPushButton *btnInfo;
+    QPushButton *btnRank;
 
 
 public: signals:
@@ -24,7 +26,7 @@ public: signals:
 public slots:
     void userSpaceShow();
     void userSpaceHidden();
-
+    void userSpaceWelcom();
 private:
     Ui::userSpace *ui;
 

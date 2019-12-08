@@ -10,6 +10,7 @@
 #include <QTimer>
 #include <math.h>
 #include <QSound>
+#include "dbhelper.h"
 
 #define CHESS_ONE_SOUND ":/sound/chessone.wav"
 #define WIN_SOUND ":/sound/win.wav"
@@ -21,9 +22,10 @@ const int kBlockSize = 40; // 格子大小
 const int kPosDelta = 15;
 const int kAIDelay = 700; // AI下棋时间
 
+extern QString user_name;
+
 wuziqiGame::wuziqiGame(QWidget *parent) : QMainWindow(parent)
 {
-
     // 棋盘大小
     int width = kBoardMargin*2 + kBlockSize*kBoardSizeNum;
     int height = kBoardMargin*2 + kBlockSize*kBoardSizeNum;
@@ -50,10 +52,6 @@ wuziqiGame::wuziqiGame(QWidget *parent) : QMainWindow(parent)
     // 连接槽函数
     connect(actionPVP, &QAction::triggered, this, &wuziqiGame::initPVPGame);
     connect(actionPVG, &QAction::triggered, this, &wuziqiGame::initPVEGame);
-
-//    for (int i = 0; i < 4; ++i) {
-//        qDebug() << d[i][0] << d[i][1] << endl;
-//    }
     initGame(); // 开始游戏
 }
 
@@ -105,8 +103,6 @@ void wuziqiGame::paintEvent(QPaintEvent *event) {
     QBrush brush;
     // 设置为统一的颜色
     brush.setStyle(Qt::SolidPattern);
-
-    // qDebug() << "update" << clickPosRow << " " << clickPosCol << endl;
     // 绘制落子
     if (clickPosRow >= 0 && clickPosRow <= kBoardSizeNum &&
             clickPosCol >= 0 && clickPosCol <= kBoardSizeNum &&
@@ -116,7 +112,6 @@ void wuziqiGame::paintEvent(QPaintEvent *event) {
         painter.setBrush(brush);
         int x = kBoardMargin + kBlockSize * clickPosCol - kMarkSize / 2;
         int y = kBoardMargin + kBlockSize * clickPosRow - kMarkSize / 2;
-//        painter.drawRect(x, y, kMarkSize, kMarkSize);
         painter.drawEllipse(x, y, kMarkSize, kMarkSize);
     }
 
@@ -155,13 +150,16 @@ void wuziqiGame::paintEvent(QPaintEvent *event) {
             if (game->gameType == PERSON) {
                 btnValue = QMessageBox::information(this, "恭喜", str+"赢了!");
                 game->gameStatus = WIN;
-            }else {
+
+            }else { // 人机下棋, 计算得分, win:+10, lose:-2 peace: +3
                 if (str == "黑棋") {
                     btnValue = QMessageBox::information(this, "糟糕", "你输了!");
                     game->gameStatus = LOSE;
+                    updateGrade(-2);
                 }else {
                     btnValue = QMessageBox::information(this, "恭喜", "你赢了!");
                     game->gameStatus = WIN;
+                    updateGrade(10);
                 }
             }
             if (btnValue == QMessageBox::Ok) {
@@ -177,6 +175,7 @@ void wuziqiGame::paintEvent(QPaintEvent *event) {
             if (btnValue == QMessageBox::Ok) {
                 game->startGame(game_type);
                 game->gameStatus = PLAY;
+                updateGrade(3);
             }
         }
     }
@@ -260,4 +259,46 @@ void wuziqiGame::sleepAI()
 
 void wuziqiGame::closeEvent(QCloseEvent *event) {
     wuziqiOut();
+}
+
+void wuziqiGame::updateGrade(int delt)
+{
+    qDebug() << "五子棋: " << user_name << endl;
+    dbHelper *db = new dbHelper;
+    db->dbConnect();
+    QSqlQuery query;
+    QString sql = QString("select ugrade from %1.grades where gname = '五子棋' and uname = '%2'").arg(db->dbName).arg(user_name);
+    query.prepare(sql);
+    query.exec();
+    qDebug() << sql << endl;
+    if (query.first() == false) { // 用户第一次玩, 需要新填数据
+        if (delt < 0) delt = 0;
+        sql = QString("insert into %1.grades(gname, uname, ugrade) values('五子棋', '%2', %3)").arg(db->dbName).arg(user_name).arg(delt);
+        query.prepare(sql);
+        query.exec();
+        qDebug() << sql << endl;
+
+    }else {
+        qDebug() << query.first() << endl;
+        int grade = query.value(0).toInt();
+        int tmp = grade + delt;
+        if (tmp < 0) tmp = 0;
+        if (tmp == grade) return;
+        grade = tmp;
+        sql = QString("update %1.grades set ugrade = %2 where gname = '五子棋' and uname = '%3'").arg(db->dbName).arg(grade).arg(user_name);
+        query.prepare(sql);
+        query.exec();
+
+    }
+}
+
+void wuziqiGame::showHelpMessage()
+{
+    QString helpText;
+    helpText += tr("欢迎来到五子棋游戏\n");
+    helpText += tr("\n五子棋共有两种模式: 人机和人人\n");
+    helpText += tr("\n人机为竞技模式, 玩家和电脑下棋, 玩家执白起先手, 每局比赛玩家胜加10分, 玩家输扣2分, 和棋加3分\n");
+    helpText += tr("\n人人为休闲模式, 玩家和玩家轮流下棋,由电脑判断输赢, 比赛结果不计入排名\n");
+    helpText += tr("\n在菜单栏可以选择切换模式, 默认为人机模式");
+    QMessageBox::information(NULL,tr("游戏帮助"),helpText);
 }

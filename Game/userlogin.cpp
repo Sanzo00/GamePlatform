@@ -12,9 +12,10 @@ QString user_name;
 userLogin::userLogin(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::userLogin)
-
 {
     ui->setupUi(this);
+
+    setStyleSheet("#userLogin{border-image:url(:/img/login.jpg);}");
 
     // 获取登录窗口的btn
     btnSign = ui->pushButton1;
@@ -59,49 +60,12 @@ void userLogin::checkLogin() {
         QMessageBox::information(this, "提示", "用户名或密码错误");
     }else {
         this->hide();
-        loginOver(); // 发出登录成功信号
-
         user_name = textName;
-//        synScreen();
+        loginOver(); // 发出登录成功信号
+        qDebug() << "login : " << user_name << endl;
     }
     if (db) {
         delete(db);
         db = NULL;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
