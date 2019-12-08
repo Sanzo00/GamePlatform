@@ -1,23 +1,22 @@
 #ifndef ENEMYPLANE_H
 #define ENEMYPLANE_H
+
 #include "plane.h"
 
-enum enemyType{
-    ORD,
-    BOSS
-};
+enum EnemyType {ORD, BOSS};
 
-class enemyPlane: protected Plane
+class EnemyPlane :protected Plane
 {
     friend class Control;
 public:
-    enemyPlane();
-    enemyPlane(int x, int y, const QString &imageFile,
-               QGraphicsScene *scene, enemyType type, int life);
-    std::pair<int, int> updatePosition();
+    EnemyPlane();
+    EnemyPlane(int x, int y, const string &imageFile, QGraphicsScene *scene, EnemyType type, int life);
+    pair<int,int> updatePosition();
 
 protected:
-    enemyType type;
+    EnemyType type;
+
 };
 
-#endif // ENEMYPLANE_H
+#endif // !ENEMYPLANE_H
+

@@ -1,8 +1,8 @@
 #ifndef PLANE_H
 #define PLANE_H
 
-#include "bullet.h"
-#include "object.h"
+#include "Bullet.h"
+#include "Object.h"
 #include <QtWidgets>
 #include <cstring>
 #include <vector>

@@ -3,7 +3,7 @@
 
 #include <QtWidgets>
 
-#include "object.h"
+#include "Object.h"
 #include <utility>
 #include <fstream>
 #include <iostream>

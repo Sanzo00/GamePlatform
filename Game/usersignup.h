@@ -28,7 +28,6 @@ public:
 
 
 public: signals:
-    void submitSignup(QString name, QString pwd, QString sex);
     void signOut();
 
 

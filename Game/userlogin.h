@@ -4,6 +4,8 @@
 #include "dbhelper.h"
 #include <QLineEdit>
 #include <QPushButton>
+#include "Object.h"
+extern QString user_name;
 QT_BEGIN_NAMESPACE
 namespace Ui { class userLogin; }
 QT_END_NAMESPACE
@@ -20,6 +22,7 @@ public:
     QPushButton *btnLogin;
     QPushButton *btnSign;
 
+//    static QString user_name;
 public: signals:
     void loginOver();
 

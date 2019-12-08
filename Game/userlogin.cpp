@@ -7,9 +7,12 @@
 #include <QMessageBox>
 #include <QDesktopWidget>
 #include <QDebug>
+//QString userLogin::user_name = "";
+QString user_name;
 userLogin::userLogin(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::userLogin)
+
 {
     ui->setupUi(this);
 
@@ -20,7 +23,6 @@ userLogin::userLogin(QWidget *parent)
     // 窗口屏幕居中
     QDesktopWidget *desktop = QApplication::desktop();
     move((desktop->width() - this->width()) / 2, (desktop->height() - this->height()) /2);
-
 }
 
 userLogin::~userLogin()
@@ -58,6 +60,9 @@ void userLogin::checkLogin() {
     }else {
         this->hide();
         loginOver(); // 发出登录成功信号
+
+        user_name = textName;
+//        synScreen();
     }
     if (db) {
         delete(db);

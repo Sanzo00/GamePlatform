@@ -1,7 +1,7 @@
 #ifndef ENEMYPLANE_H
 #define ENEMYPLANE_H
 
-#include "plane.h"
+#include "Plane.h"
 
 enum EnemyType {ORD, BOSS};
 

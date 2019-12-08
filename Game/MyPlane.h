@@ -1,7 +1,7 @@
 #ifndef MYPLANE_H
 #define MYPLANE_H
 
-#include "plane.h"
+#include "Plane.h"
 
 class MyPlane:protected Plane
 {

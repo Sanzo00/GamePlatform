@@ -15,6 +15,7 @@ public:
     explicit userSpace(QWidget *parent = nullptr);
     ~userSpace();
     QPushButton *btnWuziqi;
+    QPushButton *btnPlane;
 
 
 public: signals:

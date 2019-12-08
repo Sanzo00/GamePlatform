@@ -1,11 +1,11 @@
 #include "myplane.h"
 
-myPlane::myPlane()
+MyPlane::MyPlane()
 {
 
 }
 
-myPlane::myPlane(int x, int y, const QString &imageFile,
+MyPlane::MyPlane(int x, int y, const QString &imageFile,
                  QGraphicsScene *scene, int life, int skill):
     Plane(x, y, imageFile, scene, life, ME)
 {

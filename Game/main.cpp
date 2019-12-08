@@ -3,7 +3,7 @@
 #include "userspace.h"
 #include "usersignup.h"
 #include <wuziqigame.h>
-#include "control.h"
+#include "Control.h"
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -14,11 +14,16 @@ int main(int argc, char *argv[])
     dbHelper *db = new dbHelper; // 连接数据库
     db->dbConnect();
 
-//    login->show(); // 显示登录窗口
+
+    login->show(); // 显示登录窗口
 
     // 登录: 获取登录信息, 登录验证
     QObject::connect(login->btnLogin, &QPushButton::clicked, login, &userLogin::getLoginText);
     QObject::connect(login->btnLogin, &QPushButton::clicked, login, &userLogin::checkLogin);
+//    QObject::connect(login->btnLogin, &QPushButton::clicked, [=]{
+//        extern QString username =
+//    });
+
 
     // 登录: 显示游戏大厅
     QObject::connect(login, &userLogin::loginOver, uspace, &userSpace::userSpaceShow);
@@ -41,24 +46,31 @@ int main(int argc, char *argv[])
     // 五子棋: 返回游戏大厅
     QObject::connect(wuziqi, &wuziqiGame::wuziqiOut, uspace, &userSpace::userSpaceShow);
 
-    // 飞机大战
-    /* 启动画面 */
-//    QPixmap welcome(":/img/welcome_new.png");
-//    QSplashScreen splash(welcome);
-//    splash.resize(welcome.size());
-//    splash.show();
-//    a.processEvents();
-//    sleep(1000);
 
+    // 飞机大战
+//    QSplashScreen splash;
+//    Control *ctrl = new Control;
+//    QGraphicsView *view = new QGraphicsView;
+//    splash.finish(view);
+
+
+
+
+//    QObject::connect(uspace->btnPlane, &QPushButton::clicked, [=]{
+//        view->setWindowTitle(QObject::tr("飞机大战"));
+//        view->setScene(ctrl);
+//        view->setBackgroundBrush(QBrush(QPixmap(":/img/background.png")));
+//        view->show();
+//    });
+
+    // 游戏大厅: 显示飞机大战
     Control *ctrl = new Control;
 
-    /* 显示界面 */
-    QGraphicsView *view = new QGraphicsView;
-//    splash.finish(view);
-    view->setWindowTitle("飞机大战");
-    view->setScene(ctrl);
-    view->setBackgroundBrush(QBrush(QPixmap(":/img/background.png")));
-    view->show();
+    QObject::connect(uspace->btnPlane, &QPushButton::clicked, uspace, &userSpace::userSpaceHidden);
+    QObject::connect(uspace->btnPlane, &QPushButton::clicked, ctrl, &Control::planeShow);
+    QObject::connect(ctrl, &Control::planeOut, uspace, &userSpace::userSpaceShow);
+
+
 
 
     return a.exec();

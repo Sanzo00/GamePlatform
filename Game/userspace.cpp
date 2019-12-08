@@ -12,6 +12,7 @@ userSpace::userSpace(QWidget *parent) :
 {
     ui->setupUi(this);
     btnWuziqi = ui->btn_Wuziqi;
+    btnPlane = ui->btn_Plane;
 
 }
 
