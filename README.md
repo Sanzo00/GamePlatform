@@ -1,17 +1,63 @@
-# GamePlatform
+# GamePlatform(游戏平台)
 
 QT实现一个简单的游戏平台
 
-#### 2019.11.24 
-
-用户登录界面, 用户登录验证
-
-![](./gif/用户注册登录2019-11-24.gif)
 
 
+1. 参照数据库文档添加数据库
 
-#### 2019.11.27
+   ![](img/desc_users.png)
 
-添加五子棋功能
+   ![](img/desc_grades.png)
 
-![](./gif/五子棋.gif)
+   ![](img/desc_games.png)
+
+   ![](img/games.png)
+
+2. 修改```dbHelper.cpp```, 配置对应的数据库
+
+   ![](img/dbhelper.png)
+
+   
+
+3. 注册用户
+
+   ![](img/signup.png)
+
+   
+
+4. 登录游戏大厅
+
+   ![](img/login.png)
+
+   ![](img/space.png)
+
+   
+
+5. 五子棋游戏
+
+      ![](img/wuziqi.png)
+
+      
+
+      ![](img/wuziqi_win.png)
+
+      
+
+6. 飞机大战游戏
+
+      ![](img/plane.png)
+
+      ![](img/plane_win.png)
+
+
+
+7. 个人信息
+
+   ![](img/userinfo.png)
+
+8. 游戏排名
+
+   ![](img/rank.png)
+
+   

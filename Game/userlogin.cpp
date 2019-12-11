@@ -53,6 +53,7 @@ void userLogin::checkLogin() {
     dbHelper *db = new dbHelper;
     db->dbConnect();
     int ret = 1; // 忽略数据库连接错误
+
     if (db->checkUser(textName) ==  0) ret = -1;
     else if (db->checkPwd(textName, textPwd) == 0) ret = -2;
 

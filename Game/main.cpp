@@ -13,8 +13,8 @@ int main(int argc, char *argv[])
     userSpace *uspace = new userSpace; // 游戏大厅窗口
     signUp *sign = new signUp; // 注册窗口
     wuziqiGame *wuziqi = new wuziqiGame; // 五子棋窗口
-    dbHelper *db = new dbHelper; // 连接数据库
-    db->dbConnect();
+//    dbHelper *db = new dbHelper; // 连接数据库
+//    db->dbConnect();
 
     login->show(); // 显示登录窗口
 

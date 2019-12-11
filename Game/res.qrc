@@ -19,5 +19,9 @@
         <file>img/signup.png</file>
         <file>img/background.png</file>
         <file>img/space.jpg</file>
+        <file>img/github.ico</file>
+        <file>img/help.ico</file>
+        <file>img/sanzo.jpg</file>
+        <file>img/wuziqi.png</file>
     </qresource>
 </RCC>

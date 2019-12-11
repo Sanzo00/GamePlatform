@@ -25,6 +25,10 @@
   <property name="windowTitle">
    <string>个人信息</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="res.qrc">
+    <normaloff>:/img/sanzo.jpg</normaloff>:/img/sanzo.jpg</iconset>
+  </property>
   <widget class="QTableWidget" name="userTable">
    <property name="geometry">
     <rect>
@@ -70,6 +74,8 @@
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="res.qrc"/>
+ </resources>
  <connections/>
 </ui>

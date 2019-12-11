@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="res.qrc">
+    <normaloff>:/img/help.ico</normaloff>:/img/help.ico</iconset>
+  </property>
   <widget class="QListWidget" name="listWidget">
    <property name="geometry">
     <rect>
@@ -24,6 +28,8 @@
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="res.qrc"/>
+ </resources>
  <connections/>
 </ui>

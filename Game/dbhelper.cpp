@@ -1,10 +1,11 @@
 #include "dbhelper.h"
+#include <QDebug>
 
 dbHelper::dbHelper() {
     hostName = "127.0.0.1";
     dbName = "test";
     userName = "root";
-    userPwd = "jiezhi";
+    userPwd = "123456";
 }
 dbHelper::dbHelper(QString ip, QString database, QString user, QString pwd): hostName(ip), dbName(database), userName(user), userPwd(pwd){}
 
@@ -48,12 +49,12 @@ int dbHelper::checkPwd(QString name, QString pwd) {
 }
 
 void dbHelper::dbConnect() {
+
     if (QSqlDatabase::contains("qt_sql_default_connection")) { // 避免重复调用adddatabase
         dbconn = QSqlDatabase::database("qt_sql_default_connection");
     }else {
         dbconn = QSqlDatabase::addDatabase("QMYSQL");
     }
-
     dbconn.setHostName(hostName);
     dbconn.setDatabaseName(dbName);
     dbconn.setUserName(userName);

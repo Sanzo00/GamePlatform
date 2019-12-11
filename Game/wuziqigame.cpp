@@ -26,6 +26,7 @@ extern QString user_name;
 
 wuziqiGame::wuziqiGame(QWidget *parent) : QMainWindow(parent)
 {
+    setWindowIcon(QIcon(":/img/wuziqi.png"));
     // 棋盘大小
     int width = kBoardMargin*2 + kBlockSize*kBoardSizeNum;
     int height = kBoardMargin*2 + kBlockSize*kBoardSizeNum;
