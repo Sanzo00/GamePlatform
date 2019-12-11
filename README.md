@@ -1,10 +1,14 @@
 # GamePlatform(游戏平台)
 
+[![](https://img.shields.io/github/stars/Sanzona/GamePlatform)](https://github.com/Sanzona/GamePlatform/stargazers)  [![](https://img.shields.io/github/languages/top/sanzona/GamePlatform?style=plastic)](https://github.com/Sanzona/GamePlatform)  [![](https://img.shields.io/github/last-commit/sanzona/GamePlatform)](https://github.com/Sanzona/GamePlatform/commits/master)
+
+
+
 QT实现一个简单的游戏平台
 
 
 
-1. 参照数据库文档添加数据库
+1. 参照[数据库文档]([https://github.com/Sanzona/GamePlatform/blob/master/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%96%87%E6%A1%A3.md](https://github.com/Sanzona/GamePlatform/blob/master/数据库文档.md))添加数据库
 
    ![](img/desc_users.png)
 
